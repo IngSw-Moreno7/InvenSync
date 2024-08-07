@@ -19,16 +19,11 @@ class ControladorUsuario{
         if($_POST){
             print_r($_POST);
             $tipo_de_persona=$_POST['tipo_de_persona'];
-            $tipo_documento_identidad=$_POST['tipo_documento_identidad'];
-            $numero_documento_identidad=$_POST['numero_documento_identidad'];
-            $nombres_completos=$_POST['nombres_completos'];
-            $apellidos_completos=$_POST['apellidos_completos'];
-            $direccion_residencia=$_POST['direccion_residencia'];
-            $correo_electronico=$_POST['correo_electronico'];
-            $telefono_contacto=$_POST['telefono_contacto'];
+            $nombre_completo=$_POST['nombre_completo'];
+            $correo=$_POST['correo'];
+            $telefono=$_POST['telefono'];
             
-            Usuario::crear($tipo_de_persona,$tipo_documento_identidad,$numero_documento_identidad,$nombres_completos,
-            $apellidos_completos,$direccion_residencia,$correo_electronico,$telefono_contacto);
+            Usuario::crear($tipo_de_persona,$nombre_completo,$correo,$telefono);
             header("Location:./?controlador=usuario&accion=inicio");
         }
         include_once("views/usuario/create.php");
@@ -39,24 +34,16 @@ class ControladorUsuario{
         $id_persona=$_GET['id'];
         if($_POST){
             $tipo_de_persona=$_POST['tipo_de_persona'];
-            $tipo_documento_identidad=$_POST['tipo_documento_identidad'];
-            $numero_documento_identidad=$_POST['numero_documento_identidad'];
-            $nombres_completos=$_POST['nombres_completos'];
-            $apellidos_completos=$_POST['apellidos_completos'];
-            $direccion_residencia=$_POST['direccion_residencia'];
-            $correo_electronico=$_POST['correo_electronico'];
-            $telefono_contacto=$_POST['telefono_contacto'];
+            $nombre_completo=$_POST['nombre_completo'];
+            $correo=$_POST['correo'];
+            $telefono=$_POST['telefono'];
 
             Usuario::editar(
                 $id_persona,
                 $tipo_de_persona,
-                $tipo_documento_identidad,
-                $numero_documento_identidad,
-                $nombres_completos,
-                $apellidos_completos,
-                $direccion_residencia,
-                $correo_electronico,
-                $telefono_contacto
+                $nombre_completo,
+                $correo,
+                $telefono
             );
             header("Location:./?controlador=usuario&accion=inicio");
         }

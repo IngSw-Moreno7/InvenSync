@@ -24,7 +24,7 @@ class ControladorDetalle_de_compra{
             $valor_subtotal=$_POST['valor_subtotal'];
                     
             Usuario::crear($cantidad,$fecha_de_compra,$valor_unitario,$valor_subtotal,
-            $apellidos_completos,$direccion_residencia,$correo_electronico,$telefono_contacto);
+            $nombre_completo,$correo,$telefono);
             header("Location:./?controlador=detalle_de_compra&accion=inicio");
         }
         include_once("views/detalle_de_compra/create.php");
@@ -38,21 +38,15 @@ class ControladorDetalle_de_compra{
             $fecha_de_compra=$_POST['fecha_de_compra'];
             $valor_unitario=$_POST['valor_unitario'];
             $valor_subtotal=$_POST['valor_subtotal'];
-            $apellidos_completos=$_POST['apellidos_completos'];
-            $direccion_residencia=$_POST['direccion_residencia'];
-            $correo_electronico=$_POST['correo_electronico'];
-            $telefono_contacto=$_POST['telefono_contacto'];
+            $correo=$_POST['correo'];
+            $telefono=$_POST['telefono'];
 
             Usuario::editar(
                 $id_persona,
                 $tipo_de_persona,
-                $tipo_documento_identidad,
-                $numero_documento_identidad,
-                $nombres_completos,
-                $apellidos_completos,
-                $direccion_residencia,
-                $correo_electronico,
-                $telefono_contacto
+                $nombre_completo,
+                $correo,
+                $telefono
             );
             header("Location:./?controlador=usuario&accion=inicio");
                         

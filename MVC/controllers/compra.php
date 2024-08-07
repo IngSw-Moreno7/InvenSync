@@ -20,13 +20,11 @@ class ControladorCompra{
             print_r($_POST);
             $codigo_cliente=$_POST['codigo_cliente'];
             $tipo_cliente=$_POST ['tipo_cliente'];
-            $tipo_documento_identidad=$_POST['tipo_documento_identidad'];
-            $numero_documento_identidad=$_POST['numero_documento_identidad'];
-            $nombres_completos=$_POST['nombres_completos'];
+            $nombre_completo=$_POST['nombre_completo'];
             $fecha_de_compra=$_POST['fecha_de_compra'];
             $valor_total=$_POST['valor_total'];
             
-            Compra::crear($codigo_cliente,$tipo_cliente,$tipo_documento_identidad,$numero_documento_identidad,$nombres_completos,$fecha_de_compra,$valor_total);
+            Compra::crear($codigo_cliente,$tipo_cliente,$nombre_completo,$fecha_de_compra,$valor_total);
             header("Location:./?controlador=compra&accion=inicio");
         }
         include_once("views/compra/create.php");
@@ -38,9 +36,7 @@ class ControladorCompra{
         if($_POST){
             $codigo_cliente=$_POST['codigo_cliente'];
             $tipo_cliente=$_POST ['tipo_cliente'];
-            $tipo_documento_identidad=$_POST['tipo_documento_identidad'];
-            $numero_documento_identidad=$_POST['numero_documento_identidad'];
-            $nombres_completos=$_POST['nombres_completos'];
+            $nombre_completo=$_POST['nombre_completo'];
             $fecha_de_compra=$_POST['fecha_de_compra'];
             $valor_total=$_POST['valor_total'];
             
@@ -48,14 +44,11 @@ class ControladorCompra{
                 $id_compra,
                 $codigo_cliente,
                 $tipo_cliente,
-                $tipo_documento_identidad,
-                $numero_documento_identidad,
-                $nombres_completos,
+                $nombre_completo,
                 $fecha_de_compra,
                 $valor_total,
             );
             header("Location:./?controlador=compra&accion=inicio");
-                       
         }
         $compra=(Compra::buscar($id_compra));
 
