@@ -20,7 +20,6 @@ class ControladorCategoria{
         if($_POST){
             print_r($_POST);
             $nombre_categoria=$_POST['nombre_categoria'];
-                               
             Categoria::crear($nombre_categoria);
             header("Location:./?controlador=categoria&accion=inicio");
         }
